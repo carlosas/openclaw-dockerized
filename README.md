@@ -1,4 +1,4 @@
-# openclaw-dockerized
+# OpenClaw-Dockerized 🦞+🐳
 
 Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code and Gemini CLI pre-installed.
 
@@ -23,15 +23,9 @@ make stop
 make enter
 ```
 
-Or directly with Docker Compose:
-
-```bash
-docker compose up -d --build
-```
-
 ## Configuration
 
-The gateway runs in local mode and is accessible at `http://127.0.0.1:8888`.
+The gateway runs in local mode and is accessible at [http://127.0.0.1:8888(http://127.0.0.1:8888).
 
 ### Volumes
 
