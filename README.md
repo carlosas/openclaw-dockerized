@@ -25,7 +25,7 @@ make enter
 
 ## Configuration
 
-The gateway runs in local mode and is accessible at [http://127.0.0.1:8888(http://127.0.0.1:8888).
+The gateway runs in local mode and is accessible at [http://127.0.0.1:8888](http://127.0.0.1:8888).
 
 ### Volumes
 
