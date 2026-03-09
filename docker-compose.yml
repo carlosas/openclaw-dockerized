@@ -1,6 +1,9 @@
 services:
   openclaw:
-    build: .
+    build:
+      context: .
+      args:
+        - ROOT_PASSWORD=${ROOT_PASSWORD:-root}
     container_name: openclaw
     ports:
       - "127.0.0.1:8888:8080"
