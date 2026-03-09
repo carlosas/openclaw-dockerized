@@ -1,7 +1,13 @@
-.PHONY: start stop enter logs
+.PHONY: install reinstall start stop enter logs
+
+install:
+	docker compose build
+
+reinstall:
+	docker compose build --no-cache
 
 start:
-	docker compose up -d --build
+	docker compose up -d
 
 stop:
 	docker compose stop

@@ -13,11 +13,17 @@ Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code a
 ## Quick start
 
 ```bash
+# Build the image
+make install
+
 # Start the gateway
 make start
 
 # Stop the gateway
 make stop
+
+# Rebuild from scratch (no cache)
+make reinstall
 
 # Enter the container
 make enter
