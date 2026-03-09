@@ -21,6 +21,9 @@ make stop
 
 # Enter the container
 make enter
+
+# Configure OpenClaw
+openclaw onboard --install-daemon
 ```
 
 ## Configuration

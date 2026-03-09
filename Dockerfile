@@ -15,18 +15,20 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g openclaw @google/gemini-cli
 
-RUN curl -fsSL https://claude.ai/install.sh | bash
+RUN curl -fsSL https://claude.ai/install.sh | bash \
+    && cp /root/.local/bin/claude /usr/local/bin/claude
 
 USER node
 WORKDIR /home/node
 
 ENV HOME=/home/node
 ENV SHELL=/bin/zsh
+ENV TERM=xterm-256color
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
     && sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting)/' ${HOME}/.zshrc \
-    && echo "export PATH=\$PATH:\$(npm config get prefix)/bin" >> ${HOME}/.zshrc \
+    && echo 'export PATH=$PATH:/usr/local/bin' >> ${HOME}/.zshrc \
     && echo 'PROMPT="%{$fg_bold[blue]%}[docker]%{$reset_color%} $PROMPT"' >> ${HOME}/.zshrc
 
 EXPOSE 8080
