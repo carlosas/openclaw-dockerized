@@ -1,0 +1,14 @@
+services:
+  openclaw:
+    build: .
+    container_name: openclaw
+    ports:
+      - "127.0.0.1:8888:8080"
+    volumes:
+      - ./openclaw:/home/node/.openclaw
+      - ./gemini:/home/node/.gemini
+      - ./claude:/home/node/.claude
+    environment:
+      - TZ=Europe/Madrid
+      - OPENCLAW_GATEWAY_MODE=local
+    restart: unless-stopped
