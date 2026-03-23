@@ -14,4 +14,5 @@ services:
     environment:
       - TZ=Europe/Madrid
       - OPENCLAW_GATEWAY_MODE=local
+      - PROJECT_NAME=${PROJECT_NAME:-my-project}
     restart: unless-stopped

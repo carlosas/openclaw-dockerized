@@ -26,14 +26,14 @@ WORKDIR /home/node
 
 ENV HOME=/home/node
 ENV SHELL=/bin/zsh
-ENV TERM=xterm-truecolor
+ENV TERM=xterm-256color
 ENV COLORTERM=truecolor
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
     && sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting)/' ${HOME}/.zshrc \
     && echo 'export PATH=$PATH:/usr/local/bin' >> ${HOME}/.zshrc \
-    && echo 'PROMPT="%{$fg_bold[blue]%}[docker]%{$reset_color%} $PROMPT"' >> ${HOME}/.zshrc
+    && echo 'PROMPT="%{$fg_bold[blue]%}[${PROJECT_NAME:-my-project}]%{$reset_color%} $PROMPT"' >> ${HOME}/.zshrc
 
 COPY --chmod=755 entrypoint.sh /usr/local/bin/entrypoint.sh
 
