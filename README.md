@@ -50,6 +50,7 @@ The gateway runs in local mode and is accessible at [http://127.0.0.1:8888](http
 |----------|---------|-------------|
 | `TZ` | `Europe/Madrid` | Container timezone |
 | `OPENCLAW_GATEWAY_MODE` | `local` | Gateway operation mode |
+| `PROJECT_NAME` | `my-project` | Used in container name (`openclaw-<project-name>`) |
 
 ## Ports
 
