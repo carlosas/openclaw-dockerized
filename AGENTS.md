@@ -9,12 +9,19 @@ Dockerized deployment of OpenClaw gateway with pre-installed AI CLI tools (Claud
 ## Commands
 
 ```bash
+make help         # Show all available commands
 make install      # Build Docker image
 make reinstall    # Rebuild without cache
 make start        # Start container (detached)
 make stop         # Stop container
+make down         # Stop and remove container
+make restart      # Restart container
 make enter        # Open zsh shell inside running container
 make logs         # Tail container logs
+make status       # Show OpenClaw status
+make doctor       # Run openclaw doctor
+make clean        # Clean unused Docker resources
+make purge        # Delete everything (containers, images, volumes, local data)
 ```
 
 Gateway runs at http://127.0.0.1:8888 (maps to container port 8080).

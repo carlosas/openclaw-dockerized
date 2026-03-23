@@ -19,18 +19,15 @@ make install
 # Start the gateway
 make start
 
-# Stop the gateway
-make stop
-
-# Rebuild from scratch (no cache)
-make reinstall
-
 # Enter the container
 make enter
 
-# Configure OpenClaw
+# Configure OpenClaw (inside the container)
 openclaw onboard --install-daemon
 ```
+
+Run `make help` to see all available commands.
+
 
 ## Configuration
 
