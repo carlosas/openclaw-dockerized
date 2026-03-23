@@ -14,6 +14,9 @@ Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code a
 ## Quick start
 
 ```bash
+# Create your environment file from the template
+cp .env.dist .env
+
 # Build the image
 make install
 
