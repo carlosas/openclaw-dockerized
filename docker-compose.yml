@@ -4,7 +4,7 @@ services:
       context: .
       args:
         - ROOT_PASSWORD=${ROOT_PASSWORD:-root}
-    container_name: openclaw
+    container_name: openclaw-${PROJECT_NAME:-my-project}
     ports:
       - "127.0.0.1:8888:8080"
     volumes:
