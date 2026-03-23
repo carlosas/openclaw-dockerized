@@ -8,6 +8,7 @@ Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code a
 - **OpenClaw** - AI coding gateway
 - **Claude Code** - Anthropic CLI
 - **Gemini CLI** - Google CLI
+- **pnpm** - Fast package manager (via Corepack)
 - **zsh** with oh-my-zsh and syntax highlighting
 
 ## Quick start
@@ -31,7 +32,14 @@ Run `make help` to see all available commands.
 
 ## Configuration
 
-The gateway runs in local mode and is accessible at [http://127.0.0.1:8888](http://127.0.0.1:8888).
+### Environment variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `TZ` | `Europe/Madrid` | Container timezone |
+| `OPENCLAW_GATEWAY_MODE` | `local` | Gateway operation mode |
+| `ROOT_PASSWORD` | `root` | Root password inside the container |
+| `PROJECT_NAME` | `my-project` | Used in container name (`openclaw-<project-name>`) and shell prompt |
 
 ### Volumes
 
@@ -41,16 +49,10 @@ The gateway runs in local mode and is accessible at [http://127.0.0.1:8888](http
 | `./gemini/` | `/home/node/.gemini` | Gemini CLI configuration |
 | `./claude/` | `/home/node/.claude` | Claude Code configuration |
 
-### Environment variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `TZ` | `Europe/Madrid` | Container timezone |
-| `OPENCLAW_GATEWAY_MODE` | `local` | Gateway operation mode |
-| `PROJECT_NAME` | `my-project` | Used in container name (`openclaw-<project-name>`) |
-
 ## Ports
 
 | Host | Container | Description |
 |------|-----------|-------------|
 | 8888 | 8080 | OpenClaw gateway (localhost only) |
+
+The gateway runs in local mode and is accessible at [http://127.0.0.1:8888](http://127.0.0.1:8888) or via TUI inside the container.
