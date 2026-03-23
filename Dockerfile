@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g openclaw @google/gemini-cli
+RUN corepack enable pnpm && npm install -g openclaw @google/gemini-cli
 
 RUN curl -fsSL https://claude.ai/install.sh | bash \
     && cp /root/.local/bin/claude /usr/local/bin/claude
