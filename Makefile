@@ -1,3 +1,8 @@
+-include .env
+export
+
+PROJECT_NAME ?= my-project
+
 .PHONY: install reinstall start stop down restart logs status enter doctor clean purge help
 
 help:
@@ -38,13 +43,13 @@ logs:
 	docker compose logs -f
 
 status:
-	docker compose exec openclaw openclaw status
+	docker exec -it openclaw-$(PROJECT_NAME) openclaw status
 
 enter:
-	docker compose exec openclaw zsh
+	docker exec -it openclaw-$(PROJECT_NAME) zsh
 
 doctor:
-	docker compose exec openclaw openclaw doctor
+	docker exec -it openclaw-$(PROJECT_NAME) openclaw doctor
 
 clean:
 	docker system prune -f

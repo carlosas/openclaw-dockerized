@@ -10,7 +10,10 @@ RUN apt-get update && apt-get install -y \
     g++ \
     zsh \
     jq \
+    sudo \
     && echo "root:${ROOT_PASSWORD}" | chpasswd \
+    && adduser node sudo \
+    && echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g openclaw @google/gemini-cli
@@ -23,7 +26,8 @@ WORKDIR /home/node
 
 ENV HOME=/home/node
 ENV SHELL=/bin/zsh
-ENV TERM=xterm-256color
+ENV TERM=xterm-truecolor
+ENV COLORTERM=truecolor
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
@@ -31,6 +35,9 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     && echo 'export PATH=$PATH:/usr/local/bin' >> ${HOME}/.zshrc \
     && echo 'PROMPT="%{$fg_bold[blue]%}[docker]%{$reset_color%} $PROMPT"' >> ${HOME}/.zshrc
 
+COPY --chmod=755 entrypoint.sh /usr/local/bin/entrypoint.sh
+
 EXPOSE 8080
 
-ENTRYPOINT ["openclaw", "gateway", "run"]
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["openclaw", "gateway", "run", "--allow-unconfigured"]
