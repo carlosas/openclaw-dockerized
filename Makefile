@@ -55,11 +55,11 @@ clean:
 	docker system prune -f
 
 purge:
-	@echo "WARNING: This will delete containers, images, volumes, and the './openclaw' directory."
+	@echo "WARNING: This will delete containers, images, volumes, and the './openclaw', './claude', './gemini' directories."
 	@read -p "Are you sure? [y/N] " confirm; \
 	if [ "$$confirm" != "y" ] && [ "$$confirm" != "Y" ]; then \
 		echo "Cancelled."; \
 		exit 1; \
 	fi
 	docker compose down -v --rmi all --remove-orphans
-	rm -rf ./openclaw
+	rm -rf ./openclaw ./claude ./gemini
