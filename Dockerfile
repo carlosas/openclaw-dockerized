@@ -33,7 +33,9 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
     && sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting)/' ${HOME}/.zshrc \
     && echo 'export PATH=$PATH:/usr/local/bin' >> ${HOME}/.zshrc \
-    && echo 'PROMPT="%{$fg_bold[blue]%}[${PROJECT_NAME:-my-project}]%{$reset_color%} $PROMPT"' >> ${HOME}/.zshrc
+    && echo 'PROMPT="%{$fg_bold[blue]%}[${PROJECT_NAME:-my-project}]%{$reset_color%} $PROMPT"' >> ${HOME}/.zshrc \
+    && mkdir -p ${HOME}/.openclaw/completions \
+    && touch ${HOME}/.openclaw/completions/openclaw.zsh
 
 COPY --chmod=755 entrypoint.sh /usr/local/bin/entrypoint.sh
 
