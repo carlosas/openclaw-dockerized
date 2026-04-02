@@ -11,31 +11,12 @@ Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code a
 - **pnpm** - Fast package manager (via Corepack)
 - **zsh** with oh-my-zsh and syntax highlighting
 
-## Quick start
-
+## Configuration
 ```bash
-# Create your environment file from the template
-cp .env.dist .env
-
-# Build the image
-make install
-
-# Start the gateway
-make start
-
-# Enter the container
-make enter
-
-# Configure OpenClaw (inside the container)
-openclaw onboard --install-daemon
+cp .env.dist .env # Create your environment file from the template
 ```
 
-Run `make help` to see all available commands.
-
-
-## Configuration
-
-### Environment variables
+Update your `.env` file:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -44,7 +25,23 @@ Run `make help` to see all available commands.
 | `ROOT_PASSWORD` | `root` | Root password inside the container |
 | `PROJECT_NAME` | `my-project` | Used in container name (`openclaw-<project-name>`) and shell prompt |
 
-### Volumes
+## Quick start
+
+```bash
+make install # Build the stack
+
+make start # Start the container
+
+make enter # Enter the container
+
+# You might need to prepare Gemini or Claude at this point (inside the container)
+
+openclaw onboard --install-daemon # Configure OpenClaw (inside the container)
+```
+
+Run `make help` to see all available commands.
+
+## Volumes
 
 | Host path | Container path | Purpose |
 |-----------|---------------|---------|
