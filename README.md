@@ -53,7 +53,8 @@ Run `make help` to see all available commands.
 |-----------|---------------|---------|
 | `./openclaw/` | `/home/node/.openclaw` | OpenClaw configuration and data |
 | `./gemini/` | `/home/node/.gemini` | Gemini CLI configuration |
-| `./claude/` | `/home/node/.claude` | Claude Code configuration |
+| `./claude.json` | `/home/node/.claude.json` | Claude Code main configuration |
+| `./claude/` | `/home/node/.claude` | Claude Code extra configuration |
 
 ## Ports
 
