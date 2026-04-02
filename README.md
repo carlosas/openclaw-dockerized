@@ -13,7 +13,8 @@ Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code a
 
 ## Configuration
 ```bash
-cp .env.dist .env # Create your environment file from the template
+# Create your environment file from the template
+cp .env.dist .env
 ```
 
 Update your `.env` file:
