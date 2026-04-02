@@ -28,15 +28,18 @@ Update your `.env` file:
 ## Quick start
 
 ```bash
-make install # Build the stack
+# Build the stack
+make install
 
-make start # Start the container
+# Start the container
+make start 
 
-make enter # Enter the container
+# Enter the container
+make enter
 
-# You might need to prepare Gemini or Claude at this point (inside the container)
-
-openclaw onboard --install-daemon # Configure OpenClaw (inside the container)
+# You might want to prepare Gemini or Claude at this point (inside the container)
+# Configure OpenClaw (inside the container)
+openclaw onboard --install-daemon
 ```
 
 Run `make help` to see all available commands.
