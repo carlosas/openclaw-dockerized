@@ -11,6 +11,7 @@ services:
       - ./openclaw:/home/node/.openclaw
       - ./gemini:/home/node/.gemini
       - ./claude:/home/node/.claude
+      - ./claude.json:/home/node/.claude.json
     environment:
       - TZ=Europe/Madrid
       - OPENCLAW_GATEWAY_MODE=local
