@@ -11,9 +11,9 @@ Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code a
 - **pnpm** - Fast package manager (via Corepack)
 - **zsh** with oh-my-zsh and syntax highlighting
 
-## Configuration
+## Quick start
 
-Create an environment file from the template
+Create an environment file from the template:
 
 ```bash
 cp .env.dist .env
@@ -28,7 +28,7 @@ Update your `.env` file:
 | `ROOT_PASSWORD` | `root` | Root password inside the container |
 | `PROJECT_NAME` | `my-project` | Used in container name (`openclaw-<project-name>`) and shell prompt |
 
-## Quick start
+Install and start the system:
 
 ```bash
 # Build the stack
