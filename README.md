@@ -12,8 +12,10 @@ Containerized [OpenClaw](https://github.com/openclaw) gateway with Claude Code a
 - **zsh** with oh-my-zsh and syntax highlighting
 
 ## Configuration
+
+Create an environment file from the template
+
 ```bash
-# Create your environment file from the template
 cp .env.dist .env
 ```
 
