@@ -21,6 +21,7 @@ help:
 	@echo "  make purge     - DELETE everything (containers, images, volumes, local data)"
 
 install:
+	[ ! -f claude.json ] && echo '{"hasCompletedOnboarding":false,"autoUpdaterStatus":"disabled"}' > claude.json || true
 	mkdir -p ./openclaw
 	docker compose build
 
@@ -55,11 +56,11 @@ clean:
 	docker system prune -f
 
 purge:
-	@echo "WARNING: This will delete containers, images, volumes, and the './openclaw', './claude', './gemini' directories."
+	@echo "WARNING: This will delete containers, images, volumes, the claude.json file, and the './openclaw', './claude', './gemini' directories."
 	@read -p "Are you sure? [y/N] " confirm; \
 	if [ "$$confirm" != "y" ] && [ "$$confirm" != "Y" ]; then \
 		echo "Cancelled."; \
 		exit 1; \
 	fi
 	docker compose down -v --rmi all --remove-orphans
-	rm -rf ./openclaw ./claude ./gemini
+	rm -rf ./openclaw ./claude ./gemini ./claude.json
